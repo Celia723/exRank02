@@ -6,7 +6,7 @@
 /*   By: ceboyero <ceboyero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 18:06:55 by ceboyero          #+#    #+#             */
-/*   Updated: 2026/04/10 20:07:03 by ceboyero         ###   ########.fr       */
+/*   Updated: 2026/04/10 20:11:57 by ceboyero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void epur_str(char const *cadena)
 	i = 0;
 	while (cadena[i])
 	{
-		while (cadena[i] == ' ' || cadena[i] == '	')
+		while (cadena[i] == ' ' || cadena[i] == '\t')
 		{
 			i++;
 		}
@@ -55,14 +55,14 @@ void epur_str(char const *cadena)
 		}
 		else
 		{
-			while (cadena[i] != ' ' && cadena[i] != '	' && cadena[i])
+			while (cadena[i] != ' ' && cadena[i] != '\t' && cadena[i])
 			{
 				
 				write(1, &cadena[i], 1);
 				i++;
 			}
 
-			if (cadena[i + 1])
+			if (cadena[i])
 					write(1, " ", 1);
 		}
 	}
