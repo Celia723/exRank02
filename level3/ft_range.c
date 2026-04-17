@@ -6,7 +6,7 @@
 /*   By: ceboyero <ceboyero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 13:14:22 by ceboyero          #+#    #+#             */
-/*   Updated: 2026/04/13 18:39:45 by ceboyero         ###   ########.fr       */
+/*   Updated: 2026/04/14 12:16:07 by ceboyero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,15 @@ int *ft_range(int start, int end)
 
 int main(int argc, char const *argv[])
 {
-	int s1  = 1;
-	int s2 = 3;
+	int s1  = 4;
+	int s2 = 7;
 	int *arr;
 	int i;
 
 	i = 0;
 	arr = ft_range(s1, s2);
 	
-	while (i < 3)
+	while (i < 4)
 	{
 		printf("%d ", arr[i]);
 		i++;

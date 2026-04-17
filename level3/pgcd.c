@@ -6,7 +6,7 @@
 /*   By: ceboyero <ceboyero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 18:44:40 by ceboyero          #+#    #+#             */
-/*   Updated: 2026/04/13 19:19:18 by ceboyero         ###   ########.fr       */
+/*   Updated: 2026/04/14 12:54:34 by ceboyero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,66 +40,20 @@ $
 
  #include <unistd.h>
  #include <stdlib.h>
+ #include <stdio.h>
  
- int pgcd(int n1, int n2)
+ int pgcd(int a, int b)
  {
-	int	result1;
-	int result2;
-	int i;
-	int *divs1;
-	int *divs2;
+	int tmp;
 
-	result1 = n1;
-	result2 = n2;
-	i  = 0;
-	//sacamos os divisores de n1
-	while (result1 != 1)
+	while (b != 0)
 	{
-		if (result1 / 2)
-		{
-			result1 = result1 / 2;
-			divs1[i] = 2;			
-		}
-		else if (result1 / 3)
-		{
-			result1 = result1 / 3;
-			divs1[i] = 3;
-			
-		}
-			
-		else if (result1 / 7)
-		{
-			result1 = result1 / 7;
-			divs1[i] = 7;	
-		}
-		i++;
-			
+		tmp = b;
+		b = a % b;
+		a = tmp;
 	}
-	
-		i  = 0;
-	//sacamos os divisores de n2
-	while (result2 != 1)
-	{
-		if (result2 / 2)
-		{
-			result2 = result1 / 2;
-			divs2[i] = 2;			
-		}
-		else if (result2 / 3)
-		{
-			result1 = result2 / 3;
-			divs2[i] = 3;
-			
-		}
-			
-		else if (result2 / 7)
-		{
-			result1 = result2 / 7;
-			divs2[i] = 7;	
-		}
-		i++;
-			
-	}
+
+	return (a);
 	
  }
 
@@ -114,6 +68,7 @@ $
 	
 	n1 = atoi(argc[1]);
 	n2 = atoi(argc[2]);
-	result = pgcd (n1, n2);
-
+	printf("%d\n", pgcd(n1, n2));
+	
+	return (0);
  }
