@@ -6,7 +6,7 @@
 /*   By: ceboyero <ceboyero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 13:14:22 by ceboyero          #+#    #+#             */
-/*   Updated: 2026/04/14 12:16:07 by ceboyero         ###   ########.fr       */
+/*   Updated: 2026/04/21 11:17:45 by ceboyero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int *ft_range(int start, int end)
     int *arr;
     int i;
     int j;
+	long size;
 
     j = 0;
     if (start < end)
     {
-        arr = malloc(sizeof(int) * (end - start + 1));
+		size = (long)end - (long)start + 1;
+        arr = malloc(sizeof(int) * size);
         if (!arr)
             return (0);
         i = start;
@@ -57,7 +59,8 @@ int *ft_range(int start, int end)
     }
     else
     {
-        arr = malloc(sizeof(int) * (start - end + 1));
+		size = (long)start - (long)end + 1;
+        arr = malloc(sizeof(int) * size);
         if (!arr)
             return (0);
         i = start;

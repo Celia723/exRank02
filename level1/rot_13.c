@@ -6,7 +6,7 @@
 /*   By: ceboyero <ceboyero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 13:36:01 by ceboyero          #+#    #+#             */
-/*   Updated: 2026/04/08 15:36:03 by ceboyero         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:24:12 by ceboyero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,27 @@ If the number of arguments is not 1, the program displays a newline. */
 
 #include <stdio.h>
 #include <unistd.h>
-char	*rot_13(char const *word)
+void	rot_13(char const *str)
 {
-	int i;
-	char *result;
+	int 	i;
+	char 	*result;
+	char	c;
+	
 	i = 0;
-	while (word[i])
+	while (str[i])
 	{
-		result[i] = word[i] + 13;
+		c = str[i];
+		if(c >= 'a' && c <= 'z')
+			c = (c - 'a' + 13) % 26 + 'a';
+		else if(c >= 'A' && c <= 'Z')
+			c = (c - 'A' + 13) % 26 + 'A';
+		write(1, &c, 1);
 		i++;
 	}
-	result[i] = '\0';
+	write(1, "\n", 1);
+
+
+	
 	return (result);
 }
 int main(int argc, char const *argv[])
@@ -47,10 +57,8 @@ int main(int argc, char const *argv[])
 	{
 		write (1, "\n", 2);
 		return (0);
-	}	
+	}
 	
-	printf("%s\n", argv[1]);
-	result = rot_13(argv[1]);
-	printf("nuvo: %s\n",result );
+	rot_13(argv[1]);
 	return 0;
 }
